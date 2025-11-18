@@ -70,6 +70,29 @@ body {
   text-align: right;
 }
 
+.clear {
+  width: calc(85% + 40px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+  height: 50px;
+  aspect-ratio: auto;
+  border: none;
+  border-radius: 0;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s, box-shadow 0.1s;
+  color: white;
+  background-color: #6a6a6a;
+}
+
+.clear:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
