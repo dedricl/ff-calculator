@@ -7,44 +7,59 @@ function add(num1, num2) {
 }
 
 function subtract(num1, num2) {
-  num1 - num2;
+  return num1 - num2;
 }
 
 function multipy(num1, num2) {
-  num1 * num2;
+  return num1 * num2;
 }
 
 function divide(num1, num2) {
-  num1 / num2;
+  return num1 / num2;
 }
 
-function clear() {
-  numString1 = 0;
-  numString2 = 0;
-  operator = 0;
-  clearScreen();
+function clearScreen() {
+  numString1 = "";
+  numString2 = "";
+  operator = "";
+  setDisplayText("");
 }
 
-function operation(num1, num2, operator) {
-  if (operator === "+") {
-    return add(num1, num2);
-  } else if (operator === "-") {
-    return subtract(num1, num2);
-  } else if (operator === "*") {
-    return multipy(num1, num2);
-  } else if (operator === "/") {
-    return divide(num1, num2);
+function operation() {
+  let operatorSymbol = operator;
+  let num1 = parseFloat(numString1);
+  let num2 = parseFloat(numString2);
+  let result;
+
+  if (operatorSymbol === "+") {
+    result = add(num1, num2);
+  } else if (operatorSymbol === "-") {
+    result = subtract(num1, num2);
+  } else if (operatorSymbol === "x") {
+    result = multipy(num1, num2);
+  } else if (operatorSymbol === "/") {
+    result = divide(num1, num2);
   } else {
-    return "Error";
+    setDisplayText("Error");
   }
+  setDisplayText(result);
 }
 
 function handleNumberClick(num) {
-  numString1 = numString1 + num;
-  console.log(numString1);
+  if (operator) {
+    numString2 = numString2 + num;
+  } else {
+    numString1 = numString1 + num;
+  }
+  setDisplayText(numString1 + operator + numString2);
 }
 
 function handleOperatorClick(newOperator) {
   operator = newOperator;
-  console.log(operator);
+  setDisplayText(numString1 + operator);
+}
+
+function setDisplayText(displayText) {
+  const displayTextElement = document.querySelector(".display-text");
+  displayTextElement.textContent = displayText;
 }

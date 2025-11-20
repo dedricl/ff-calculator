@@ -26,7 +26,9 @@
       </div>
 
       <!-- Clear button -->
-      <button class="btn clear" data-value="clear">Clear</button>
+      <button class="btn clear" data-value="clear" onclick="clearScreen()">
+        Clear
+      </button>
 
       <!-- Buttons grid -->
       <div class="buttons">
@@ -131,11 +133,7 @@
         >
           .
         </button>
-        <button
-          class="btn equals"
-          data-value="="
-          onclick="handleOperatorClick('=')"
-        >
+        <button class="btn equals" data-value="=" onclick="operation()">
           =
         </button>
         <button
